@@ -9,7 +9,8 @@
     "paper",
     "fab",
     "menu",
-    "polymer"
+    "polymer",
+    "web-components"
   ],
   "license": "MIT",
   "homepage": "",

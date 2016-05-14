@@ -16,6 +16,7 @@ There are two ways to show the paper-fab-button: `vertical` or `horizontal`.
 
 Example:
 
+```html
 <paper-fab-menu icon="add" position="vertical">
 	<paper-fab-menu-item label="Polymer" icon="polymer" ></paper-fab-menu-item>
 	<paper-fab-menu-item label="Favorites" icon="star" ></paper-fab-menu-item>
@@ -32,5 +33,16 @@ The following properties are available for styling:
 | `icon` | The icon of the main paper-button | `''` |
 | `color` | The background color of the main paper button | `--accent-color` |
 | `position` | The position of the items: `vertical` or `horizontal` | `vertical` |
+
+### <paper-fab-menu-item> - Properties
+
+The following properties are available for styling:
+
+| Property Name | Description | Default |
+| --- | --- | --- |
+| `icon` | The icon of the paper menu item | `''` |
+| `color` | The background color of the paper menu item | `--accent-color` |
+| `label` | The tooltip label of the paper menu item | `''` |
+| `tooltip-position` | The position of the tooltip | `left` |
 
 

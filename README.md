@@ -24,7 +24,7 @@ Example:
 </paper-fab-menu>
 ```
 
-### <paper-fab-menu> - Properties
+### ##&lt;paper-fab-menu&gt; - Properties
 
 The following properties are available for styling:
 
@@ -34,7 +34,7 @@ The following properties are available for styling:
 | `color` | The background color of the main paper button | `--accent-color` |
 | `position` | The position of the items: `vertical` or `horizontal` | `vertical` |
 
-### <paper-fab-menu-item> - Properties
+### ##&lt;paper-fab-menu-item&gt; - Properties
 
 The following properties are available for styling:
 

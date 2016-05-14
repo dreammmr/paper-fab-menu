@@ -1,0 +1,174 @@
+
+<!--
+@author Arshak Khachatrian (<a href="mailto:akhxtern@gmail.com">akhxtern@gmail.com</a>)
+@website http://spacee.xyz
+@updateDate May 14, 2016
+
+**********
+*
+*   *** PAPER FAB MENU ***
+*   
+*   This floating action button is using the Material Design concept of expandable
+*   Paper Fab Button and using the Polymer components to make the concept happen.
+*   
+*   *** EXAMPLE - without links ***
+*   <paper-fab-menu color="teal" icon="add" position="vertical">
+*        <paper-fab-menu-item color="teal" label="Favorites" icon="star" ></paper-fab-menu-item>
+*        <paper-fab-menu-item color="teal" label="Favorites" icon="star" ></paper-fab-menu-item>
+*        <paper-fab-menu-item color="teal" label="Favorites" icon="star" ></paper-fab-menu-item>
+*   </paper-fab-menu>
+*
+*   *** EXAMPLE - with links ***
+*
+*   <paper-fab-menu color="red" icon="add" position="horizontal">
+*        <a href="#/favorites">
+*            <paper-fab-menu-item color="red" label="Favorites" icon="star" ></paper-fab-menu-item>
+*        </a>    
+*        <a href="#/favorites">
+*            <paper-fab-menu-item color="red" label="Favorites" icon="star" ></paper-fab-menu-item>
+*        </a>  
+*        <a href="#/favorites">
+*            <paper-fab-menu-item color="red" label="Favorites" icon="star" ></paper-fab-menu-item>
+*        </a>  
+*   </paper-fab-menu>
+*
+********** -->
+
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="bower_components/paper-tooltip/paper-tooltip.html">
+<link rel="import" href="bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="paper-fab-menu-item.html">
+
+<dom-module id="paper-fab-menu">
+    <style is="custom-style">
+        :host {
+            width : 60px;
+        }
+
+        :host .layout {
+            max-width:;
+        }
+
+        :host .menu-fab-button {
+            padding : 7px;
+        }
+
+        :host .menu-items ::content a {
+            display: block;
+            margin: 7px;
+        }
+
+        :host .menu-items ::content a > paper-fab-menu-item {
+            margin: 0;
+        }
+
+        :host paper-fab ::content iron-icon {
+            transition : 200ms all;
+        }
+
+        :host .menu-fab-button[open] paper-fab ::content iron-icon {
+            transform : rotate(45deg);
+        }
+
+        :host .menu-items {
+            order : 1;
+        }
+
+        :host .menu-fab-button {
+            order : 2;
+        }
+
+        :host .menu-items[open] ::content .menu-item {
+            transform : scale(1);
+        }
+
+        :host .menu-items ::content paper-fab-menu-item:nth-child(1) .menu-item, :host .menu-items ::content a:nth-child(1) .menu-item {
+            transition: 100ms all;
+            transition-delay: 250ms;
+        }
+
+        :host .menu-items ::content paper-fab-menu-item:nth-child(2) .menu-item, :host .menu-items ::content a:nth-child(2) .menu-item {
+            transition: 100ms all;
+            transition-delay: 200ms;
+        }
+
+        :host .menu-items ::content paper-fab-menu-item:nth-child(3) .menu-item, :host .menu-items ::content a:nth-child(3) .menu-item {
+            transition: 100ms all;
+            transition-delay: 150ms;
+        }
+
+        :host .menu-items ::content paper-fab-menu-item:nth-child(4) .menu-item, :host .menu-items ::content a:nth-child(4) .menu-item {
+            transition: 100ms all;
+            transition-delay: 100ms;
+        }
+
+        :host .menu-items ::content paper-fab-menu-item:nth-child(5) .menu-item, :host .menu-items ::content a:nth-child(5) .menu-item {
+            transition: 100ms all;
+            transition-delay: 50ms;
+        }
+
+        :host .menu-items ::content paper-fab-menu-item:nth-child(6) .menu-item, :host .menu-items ::content a:nth-child(6) .menu-item {
+            transition: 100ms all;
+        }
+
+        :host paper-fab {
+            transform : scale(0);
+            animation : 300ms scale 300ms 1 forwards alternate cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        @keyframes scale {
+            0% {
+                transform         : scale(0);
+                -webkit-transform : scale(0);
+            }
+            100% {
+                transform         : scale(1.0);
+                -webkit-transform : scale(1.0);
+            }
+        }
+    </style>
+    <template>
+        <div class$="layout {{position}}">
+            <div open$="{{ show }}" id="mainFab" class="menu-fab-button layout vertical self-center">
+                <paper-fab id="paperFab" icon="{{ icon }}"></paper-fab>
+            </div>
+            <div open$="{{ show }}" id="mainItems" class$="menu-items flex layout {{position}} self-center">
+                <content select="a, paper-fab-menu-item"></content>
+            </div>
+        </div>
+    </template>
+    <script>
+        Polymer({
+            is         : 'paper-fab-menu',
+            properties : {
+                position : {
+                    value : 'vertical' // or "horizontal"
+                },
+                show     : {
+                    value : false
+                },
+                color: {
+                    type: String // any color you would like to be a main paper-fab
+                }
+            },
+            listeners  : {
+                'mainFab.mouseover'   : 'open',
+                'mainFab.mouseout'    : 'close',
+                'mainItems.mouseover' : 'open',
+                'mainItems.mouseout'  : 'close'
+            },
+            ready: function () {
+                if(this.color)
+                    this.$.paperFab.style.backgroundColor = this.color;
+            },
+            open       : function() {
+                this.show = true;
+            },
+            close      : function() {
+                this.show = false;
+            }
+        })
+    </script>
+</dom-module>

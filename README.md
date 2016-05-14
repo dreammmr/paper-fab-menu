@@ -33,15 +33,4 @@ The following properties are available for styling:
 | `color` | The background color of the main paper button | `--accent-color` |
 | `position` | The position of the items: `vertical` or `horizontal` | `vertical` |
 
-### <paper-fab-menu-item> - Properties
-
-The following properties are available for styling:
-
-| Property Name | Description | Default |
-| --- | --- | --- |
-| `icon` | The icon of the paper menu item | `''` |
-| `color` | The background color of the paper menu item | `--accent-color` |
-| `label` | The tooltip label of the paper menu item | `''` |
-| `tooltip-position` | The position of the tooltip | `left` |
-
 

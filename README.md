@@ -14,9 +14,17 @@ There are two ways to show the paper-fab-button: `vertical` or `horizontal`.
 
 [Live Example](http://spacee.xyz/paper-fab-menu/demo.html)
 
+##Installing with Bower
+
+To install the component with the Bower, just run: 
+
+`bower install --save paperfabmenu`
+
 Example:
 
 ```html
+<import rel="import" src="bower_components/paper-fab-menu/paper-fab-menu.html" />
+
 <paper-fab-menu icon="add" position="vertical">
 	<paper-fab-menu-item label="Polymer" icon="polymer" ></paper-fab-menu-item>
 	<paper-fab-menu-item label="Favorites" icon="star" ></paper-fab-menu-item>

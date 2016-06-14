@@ -51,8 +51,17 @@
             max-width:;
         }
 
-        :host .menu-fab-button {
-            padding : 7px;
+        :host([position="vertical"]) .menu-fab-button {
+            padding-top : 7px;
+        }
+        :host([position="horizontal"]) .menu-fab-button {
+            padding-left : 7px;
+        }
+        :host-context([dir="rtl"]) :host([position="horizontal"]) .menu-fab-button,
+        :host-context([dir="rtl"])[position="horizontal"] .menu-fab-button, /* Polymer workaround */
+        :host([dir="rtl"][position="horizontal"]) .menu-fab-button {
+            padding-left : 0;
+            padding-right : 7px;
         }
 
         :host .menu-items ::content a {

@@ -94,33 +94,65 @@
         }
 
         :host .menu-items ::content paper-fab-menu-item:nth-child(1) .menu-item, :host .menu-items ::content a:nth-child(1) .menu-item {
-            transition: 100ms all;
             transition-delay: 250ms;
         }
 
         :host .menu-items ::content paper-fab-menu-item:nth-child(2) .menu-item, :host .menu-items ::content a:nth-child(2) .menu-item {
-            transition: 100ms all;
             transition-delay: 200ms;
         }
 
         :host .menu-items ::content paper-fab-menu-item:nth-child(3) .menu-item, :host .menu-items ::content a:nth-child(3) .menu-item {
-            transition: 100ms all;
             transition-delay: 150ms;
         }
 
         :host .menu-items ::content paper-fab-menu-item:nth-child(4) .menu-item, :host .menu-items ::content a:nth-child(4) .menu-item {
-            transition: 100ms all;
             transition-delay: 100ms;
         }
 
         :host .menu-items ::content paper-fab-menu-item:nth-child(5) .menu-item, :host .menu-items ::content a:nth-child(5) .menu-item {
-            transition: 100ms all;
             transition-delay: 50ms;
         }
 
         :host .menu-items ::content paper-fab-menu-item:nth-child(6) .menu-item, :host .menu-items ::content a:nth-child(6) .menu-item {
-            transition: 100ms all;
+            transition-delay: 0ms;
         }
+
+        :host .menu-items ::content paper-fab-menu-item .menu-item, :host .menu-items ::content a .menu-item
+        {
+             transition: 100ms all;
+        }
+
+        /*REVERSED-STYLE-START*/
+
+        :host .menu-items.reversed {
+            order : 3;
+        }
+
+        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(1) .menu-item, :host .menu-items.reversed ::content a:nth-child(1) .menu-item {
+            transition-delay: 0ms;
+        }
+
+        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(2) .menu-item, :host .menu-items.reversed ::content a:nth-child(2) .menu-item {
+            transition-delay: 50ms;
+        }
+
+        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(3) .menu-item, :host .menu-items.reversed ::content a:nth-child(3) .menu-item {
+            transition-delay: 100ms;
+        }
+
+        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(4) .menu-item, :host .menu-items.reversed ::content a:nth-child(4) .menu-item {
+            transition-delay: 150ms;
+        }
+
+        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(5) .menu-item, :host .menu-items.reversed ::content a:nth-child(5) .menu-item {
+            transition-delay: 200ms;
+        }
+
+        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(6) .menu-item, :host .menu-items.reversed ::content a:nth-child(6) .menu-item {
+            transition-delay: 250ms;
+        }
+
+        /*REVERSED-STYLE-END*/
 
         :host paper-fab {
             transform : scale(0);
@@ -153,7 +185,7 @@
             is         : 'paper-fab-menu',
             properties : {
                 position : {
-                    value : 'vertical' // or "horizontal"
+                    value : 'vertical' // ALLOWED: 'vertical', 'horizontal', 'vertical reversed', 'horizontal reversed'
                 },
                 show     : {
                     value : false

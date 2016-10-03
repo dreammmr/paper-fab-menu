@@ -2,12 +2,12 @@
     <template>
         <style is="custom-style">
             :host .menu-item {
-                position : relative;
+                position: relative;
             }
 
             :host {
-                flex   : 1;
-                margin : 7px;
+                flex: 1;
+                margin: 7px;
             }
 
             :host .menu-item paper-fab ::content iron-icon {
@@ -15,7 +15,7 @@
             }
 
             :host .menu-item {
-                transform  : scale(0);
+                transform: scale(0);
             }
         </style>
         <div class="menu-item">
@@ -25,17 +25,17 @@
     </template>
     <script>
         Polymer({
-            is         : 'paper-fab-menu-item',
-            properties : {
-                color : {
-                    type : 'String'
+            is: 'paper-fab-menu-item',
+            properties: {
+                color: {
+                    type: 'String'
                 },
                 tooltipPosition: {
                     type: 'String',
                     value: 'left'
                 }
             },
-            ready      : function() {
+            ready: function() {
                 if(this.color)
                     this.$.paperFab.style.backgroundColor = this.color;
             }

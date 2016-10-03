@@ -93,6 +93,10 @@
 
         :host .menu-items {
             order: 1;
+            /* This prevents the browser window's scroll bar to sometimes appear
+             * when the menu is closed.
+             */
+            overflow: hidden;
         }
 
         :host .menu-fab-button {

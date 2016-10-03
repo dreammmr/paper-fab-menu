@@ -7,10 +7,10 @@
 **********
 *
 *   *** PAPER FAB MENU ***
-*   
+*
 *   This floating action button is using the Material Design concept of expandable
 *   Paper Fab Button and using the Polymer components to make the concept happen.
-*   
+*
 *   *** EXAMPLE - without links ***
 *   <paper-fab-menu color="teal" icon="add" position="vertical">
 *        <paper-fab-menu-item color="teal" label="Favorites" icon="star" ></paper-fab-menu-item>
@@ -23,13 +23,13 @@
 *   <paper-fab-menu color="red" icon="add" position="horizontal">
 *        <a href="#/favorites">
 *            <paper-fab-menu-item color="red" label="Favorites" icon="star" ></paper-fab-menu-item>
-*        </a>    
+*        </a>
 *        <a href="#/favorites">
 *            <paper-fab-menu-item color="red" label="Favorites" icon="star" ></paper-fab-menu-item>
-*        </a>  
+*        </a>
 *        <a href="#/favorites">
 *            <paper-fab-menu-item color="red" label="Favorites" icon="star" ></paper-fab-menu-item>
-*        </a>  
+*        </a>
 *   </paper-fab-menu>
 *
 ********** -->
@@ -171,6 +171,10 @@
             animation : 300ms scale 300ms 1 forwards alternate cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
+        :host .menu-items:not([open]) {
+            animation : 0s delayed-disappearance 300ms 1 forwards;
+        }
+
         @keyframes scale {
             0% {
                 transform         : scale(0);
@@ -180,6 +184,11 @@
                 transform         : scale(1.0);
                 -webkit-transform : scale(1.0);
             }
+        }
+
+        @keyframes delayed-disappearance {
+            from { height: auto; }
+            to   { height: 0;    }
         }
     </style>
     <template>

@@ -12,7 +12,7 @@ See `iron-iconset` for more information about how to use a custom icon set.
 
 There are two ways to show the paper-fab-button: `vertical` or `horizontal`.
 
-[Live Example](http://spacee.xyz/paper-fab-menu/demo.html)
+[Live Example](http://spacee.xyz/polymer-components/paper-fab-menu/demo.html)
 
 ##Installing with Bower
 

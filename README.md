@@ -1,5 +1,5 @@
 
-##&lt;paper-fab-menu&gt;
+## &lt;paper-fab-menu&gt;
 
 Material design: [Floating Action Button](https://www.google.com/design/spec/components/buttons-floating-action-button.html)
 
@@ -12,9 +12,9 @@ See `iron-iconset` for more information about how to use a custom icon set.
 
 There are four ways to show the paper-fab-button: `vertical`, `vertical reversed`, `horizontal`, `horizontal reversed`.
 
-[Live Example](http://spacee.xyz/polymer-components/paper-fab-menu/demo.html)
+[Live Example](http://spacee.xyz/polymer-components/paper-fab-menu/demo/demo.html)
 
-##Installing with Bower
+## Installing with Bower
 
 To install the component with the Bower, just run: 
 

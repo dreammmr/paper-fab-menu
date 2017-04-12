@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>&#x3C;paper-fab-menu&#x3E; demo page</title>
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+  <link rel="import" href="../../paper-styles/typography.html">
+  <link rel="import" href="../../paper-material/paper-material.html">
+
+  <link rel="import" href="../paper-fab-menu.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+  .vertical {
+    position: relative;
+    height: 250px;
+  }
+
+  .vertical paper-fab-menu {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .vertical.reverse paper-fab-menu {
+    position: absolute;
+    bottom: auto;
+    top: 10px;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="vertical-section-container centered">
+    <h1>paper-fab-menu demo</h1>
+  </div>
+
+  <div class="vertical-section-container centered">
+    <h3>VERTICAL MODE</h3>
+    <demo-snippet>
+      <template>
+        <div class="vertical">
+          <paper-fab-menu icon="add" position="vertical">
+            <paper-fab-menu-item label="Polymer" icon="polymer"></paper-fab-menu-item>
+            <paper-fab-menu-item label="Favorites" icon="star"></paper-fab-menu-item>
+            <paper-fab-menu-item label="Refresh" icon="refresh"></paper-fab-menu-item>
+          </paper-fab-menu>
+        </div>
+      </template>
+    </demo-snippet>
+  </div>
+
+  <div class="vertical-section-container centered">
+    <h3>VERTICAL REVERSED MODE</h3>
+    <demo-snippet>
+      <template>
+        <div class="vertical reverse">
+          <paper-fab-menu icon="add" position="vertical reversed">
+            <paper-fab-menu-item label="Polymer" icon="polymer"></paper-fab-menu-item>
+            <paper-fab-menu-item label="Favorites" icon="star"></paper-fab-menu-item>
+            <paper-fab-menu-item label="Refresh" icon="refresh"></paper-fab-menu-item>
+          </paper-fab-menu>
+        </div>
+      </template>
+    </demo-snippet>
+  </div>
+
+  <div class="vertical-section-container centered">
+    <h3>HORIZONTAL MODE</h3>
+    <demo-snippet>
+      <template>
+        <paper-fab-menu color="#2196F3" icon="add" position="horizontal">
+          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Polymer" icon="polymer"></paper-fab-menu-item>
+          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Favorites" icon="star"></paper-fab-menu-item>
+          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Refresh" icon="refresh"></paper-fab-menu-item>
+        </paper-fab-menu>
+      </template>
+    </demo-snippet>
+  </div>
+
+  <div class="vertical-section-container centered">
+    <h3>HORIZONTAL REVERSED MODE</h3>
+    <demo-snippet>
+      <template>
+        <paper-fab-menu color="#2196F3" icon="add" position="horizontal reversed">
+          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Polymer" icon="polymer"></paper-fab-menu-item>
+          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Favorites" icon="star"></paper-fab-menu-item>
+          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Refresh" icon="refresh"></paper-fab-menu-item>
+        </paper-fab-menu>
+      </template>
+    </demo-snippet>
+  </div>
+
+  <div class="vertical-section-container centered">
+    <h3>With links</h3>
+    <demo-snippet>
+      <template>
+        <div class="vertical">
+          <paper-fab-menu icon="add" position="vertical">
+            <a target="_blank" href="http://spacee.xyz">
+              <paper-fab-menu-item label="Polymer" icon="polymer"></paper-fab-menu-item>
+            </a>
+            <a target="_blank" href="http://spacee.xyz">
+              <paper-fab-menu-item label="Favorites" icon="star"></paper-fab-menu-item>
+            </a>
+            <a target="_blank" href="http://spacee.xyz">
+              <paper-fab-menu-item label="Refresh" icon="refresh"></paper-fab-menu-item>
+            </a>
+          </paper-fab-menu>
+        </div>
+      </template>
+    </demo-snippet>
+  </div>
+</body>
+</html>

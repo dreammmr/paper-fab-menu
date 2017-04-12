@@ -1,44 +1,54 @@
+<!-- @demo demo/index.html -->
 <dom-module id="paper-fab-menu-item">
-    <template>
-        <style is="custom-style">
-            :host .menu-item {
-                position: relative;
-            }
+<template>
+  <style is="custom-style">
 
-            :host {
-                flex: 1;
-                margin: 7px;
-            }
+    :host {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 auto;
+              flex: 1 1 auto;
+      margin: 7px;
+    }
 
-            :host .menu-item paper-fab ::content iron-icon {
-                transform: rotate(0deg) !important;
-            }
+    :host .menu-item {
+      position: relative;
+    }
 
-            :host .menu-item {
-                transform: scale(0);
-            }
-        </style>
-        <div class="menu-item">
-            <paper-fab id="paperFab" mini icon="{{ icon }}"></paper-fab>
-            <paper-tooltip offset="10" margin-top="0" position="{{ tooltipPosition }}">{{ label }}</paper-tooltip>
-        </div>
-    </template>
-    <script>
-        Polymer({
-            is: 'paper-fab-menu-item',
-            properties: {
-                color: {
-                    type: 'String'
-                },
-                tooltipPosition: {
-                    type: 'String',
-                    value: 'left'
-                }
-            },
-            ready: function() {
-                if(this.color)
-                    this.$.paperFab.style.backgroundColor = this.color;
-            }
-        });
-    </script>
+    :host .menu-item paper-fab ::content iron-icon {
+      -webkit-transform: rotate(0deg) !important;
+              transform: rotate(0deg) !important;
+    }
+
+    :host .menu-item {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+  </style>
+
+  <div class="menu-item">
+    <paper-fab id="paperFab" mini icon="{{ icon }}"></paper-fab>
+    <paper-tooltip offset="10" margin-top="0" position="{{ tooltipPosition }}">{{ label }}</paper-tooltip>
+  </div>
+</template>
+<script>
+Polymer({
+  is: 'paper-fab-menu-item',
+  properties: {
+    color: {
+      type: 'String'
+    },
+    tooltipPosition: {
+      type: 'String',
+      value: 'left'
+    }
+  },
+  ready: function() {
+    if(this.color)
+    this.$.paperFab.style.backgroundColor = this.color;
+  }
+});
+</script>
 </dom-module>

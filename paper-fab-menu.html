@@ -32,7 +32,10 @@
 *        </a>
 *   </paper-fab-menu>
 *
-********** -->
+**********
+
+@demo demo/index.html
+-->
 
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
@@ -42,202 +45,267 @@
 <link rel="import" href="paper-fab-menu-item.html">
 
 <dom-module id="paper-fab-menu">
-    <style is="custom-style">
-        :host {
-        }
+<template>
+  <style>
+    :host {
+    }
 
-        :host .layout {
-        }
+    :host .layout {
+    }
 
-        :host([position="vertical"]) .menu-fab-button {
-            padding-top: 7px;
-        }
-        :host([position="vertical reversed"]) .menu-fab-button {
-            padding-bottom: 7px;
-        }
-        :host([position="horizontal"]) .menu-fab-button {
-            padding-left: 7px;
-        }
-        :host([position="horizontal reversed"]) .menu-fab-button {
-            padding-right: 7px;
-        }
-        :host-context([dir="rtl"]) :host([position="horizontal"]) .menu-fab-button,
-        :host-context([dir="rtl"])[position="horizontal"] .menu-fab-button, /* Polymer workaround */
-        :host([dir="rtl"][position="horizontal"]) .menu-fab-button {
-            padding-left: 0;
-            padding-right: 7px;
-        }
-        :host-context([dir="rtl"]) :host([position="horizontal reversed"]) .menu-fab-button,
-        :host-context([dir="rtl"])[position="horizontal reversed"] .menu-fab-button, /* Polymer workaround */
-        :host([dir="rtl"][position="horizontal reversed"]) .menu-fab-button {
-            padding-right: 0;
-            padding-left: 7px;
-        }
+    :host([position="vertical"]) .menu-fab-button {
+      padding-top: 7px;
+    }
 
-        :host .menu-items ::content a {
-            display: block;
-            margin: 7px;
-        }
+    :host([position="vertical reversed"]) .menu-fab-button {
+      padding-bottom: 7px;
+    }
 
-        :host .menu-items ::content a > paper-fab-menu-item {
-            margin: 0;
-        }
+    :host([position="horizontal"]) .menu-fab-button {
+      padding-left: 7px;
+    }
 
-        :host paper-fab ::content iron-icon {
-            transition: 200ms all;
-        }
+    :host([position="horizontal reversed"]) .menu-fab-button {
+      padding-right: 7px;
+    }
 
-        :host .menu-fab-button[open] paper-fab ::content iron-icon {
-            transform: rotate(45deg);
-        }
+    :host-context([dir="rtl"]) :host([position="horizontal"]) .menu-fab-button,
+    :host-context([dir="rtl"])[position="horizontal"] .menu-fab-button, /* Polymer workaround */
+    :host([dir="rtl"][position="horizontal"]) .menu-fab-button {
+      padding-left: 0;
+      padding-right: 7px;
+    }
 
-        :host .menu-items {
-            order: 1;
-            /* This prevents the browser window's scroll bar to sometimes appear
-             * when the menu is closed.
-             */
-            overflow: hidden;
-        }
+    :host-context([dir="rtl"]) :host([position="horizontal reversed"]) .menu-fab-button,
+    :host-context([dir="rtl"])[position="horizontal reversed"] .menu-fab-button, /* Polymer workaround */
+    :host([dir="rtl"][position="horizontal reversed"]) .menu-fab-button {
+      padding-right: 0;
+      padding-left: 7px;
+    }
 
-        :host .menu-fab-button {
-            order: 2;
-        }
+    :host .menu-items ::content a {
+      display: block;
+      margin: 7px;
+    }
 
-        :host .menu-items[open] ::content .menu-item {
-            transform: scale(1);
-        }
+    :host .menu-items ::content a > paper-fab-menu-item {
+      margin: 0;
+    }
 
-        :host .menu-items ::content paper-fab-menu-item:nth-child(1) .menu-item, :host .menu-items ::content a:nth-child(1) .menu-item {
-            transition-delay: 250ms;
-        }
+    :host paper-fab ::content iron-icon {
+      -webkit-transition: 200ms all;
+      transition: 200ms all;
+    }
 
-        :host .menu-items ::content paper-fab-menu-item:nth-child(2) .menu-item, :host .menu-items ::content a:nth-child(2) .menu-item {
-            transition-delay: 200ms;
-        }
+    :host .menu-fab-button[open] paper-fab ::content iron-icon {
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+    }
 
-        :host .menu-items ::content paper-fab-menu-item:nth-child(3) .menu-item, :host .menu-items ::content a:nth-child(3) .menu-item {
-            transition-delay: 150ms;
-        }
+    :host .menu-items {
+      -webkit-box-ordinal-group: 2;
+          -ms-flex-order: 1;
+              order: 1;
+      /* This prevents the browser window's scroll bar to sometimes appear
+      * when the menu is closed.
+      */
+      /*overflow: hidden;*/
+    }
 
-        :host .menu-items ::content paper-fab-menu-item:nth-child(4) .menu-item, :host .menu-items ::content a:nth-child(4) .menu-item {
-            transition-delay: 100ms;
-        }
+    :host .menu-fab-button {
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2;
+    }
 
-        :host .menu-items ::content paper-fab-menu-item:nth-child(5) .menu-item, :host .menu-items ::content a:nth-child(5) .menu-item {
-            transition-delay: 50ms;
-        }
+    :host .menu-items[open] ::content .menu-item {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
 
-        :host .menu-items ::content paper-fab-menu-item:nth-child(6) .menu-item, :host .menu-items ::content a:nth-child(6) .menu-item {
-            transition-delay: 0ms;
-        }
+    :host .menu-items ::content paper-fab-menu-item:nth-child(1) .menu-item,
+    :host .menu-items ::content a:nth-child(1) .menu-item {
+      -webkit-transition-delay: 250ms;
+              transition-delay: 250ms;
+    }
 
-        :host .menu-items ::content paper-fab-menu-item .menu-item, :host .menu-items ::content a .menu-item {
-             transition: 100ms all;
-        }
+    :host .menu-items ::content paper-fab-menu-item:nth-child(2) .menu-item,
+    :host .menu-items ::content a:nth-child(2) .menu-item {
+      -webkit-transition-delay: 200ms;
+              transition-delay: 200ms;
+    }
 
-        /*REVERSED-STYLE-START*/
+    :host .menu-items ::content paper-fab-menu-item:nth-child(3) .menu-item,
+    :host .menu-items ::content a:nth-child(3) .menu-item {
+      -webkit-transition-delay: 150ms;
+              transition-delay: 150ms;
+    }
 
-        :host .menu-items.reversed {
-            order: 3;
-        }
+    :host .menu-items ::content paper-fab-menu-item:nth-child(4) .menu-item,
+    :host .menu-items ::content a:nth-child(4) .menu-item {
+      -webkit-transition-delay: 100ms;
+              transition-delay: 100ms;
+    }
 
-        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(1) .menu-item, :host .menu-items.reversed ::content a:nth-child(1) .menu-item {
-            transition-delay: 0ms;
-        }
+    :host .menu-items ::content paper-fab-menu-item:nth-child(5) .menu-item,
+    :host .menu-items ::content a:nth-child(5) .menu-item {
+      -webkit-transition-delay: 50ms;
+              transition-delay: 50ms;
+    }
 
-        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(2) .menu-item, :host .menu-items.reversed ::content a:nth-child(2) .menu-item {
-            transition-delay: 50ms;
-        }
+    :host .menu-items ::content paper-fab-menu-item:nth-child(6) .menu-item,
+    :host .menu-items ::content a:nth-child(6) .menu-item {
+      -webkit-transition-delay: 0ms;
+              transition-delay: 0ms;
+    }
 
-        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(3) .menu-item, :host .menu-items.reversed ::content a:nth-child(3) .menu-item {
-            transition-delay: 100ms;
-        }
+    :host .menu-items ::content paper-fab-menu-item .menu-item,
+    :host .menu-items ::content a .menu-item {
+      -webkit-transition: 100ms all;
+      transition: 100ms all;
+    }
 
-        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(4) .menu-item, :host .menu-items.reversed ::content a:nth-child(4) .menu-item {
-            transition-delay: 150ms;
-        }
+    /*REVERSED-STYLE-START*/
 
-        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(5) .menu-item, :host .menu-items.reversed ::content a:nth-child(5) .menu-item {
-            transition-delay: 200ms;
-        }
+    :host .menu-items.reversed {
+      -webkit-box-ordinal-group: 4;
+          -ms-flex-order: 3;
+              order: 3;
+    }
 
-        :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(6) .menu-item, :host .menu-items.reversed ::content a:nth-child(6) .menu-item {
-            transition-delay: 250ms;
-        }
+    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(1) .menu-item,
+    :host .menu-items.reversed ::content a:nth-child(1) .menu-item {
+      -webkit-transition-delay: 0ms;
+              transition-delay: 0ms;
+    }
 
-        /*REVERSED-STYLE-END*/
+    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(2) .menu-item,
+    :host .menu-items.reversed ::content a:nth-child(2) .menu-item {
+      -webkit-transition-delay: 50ms;
+              transition-delay: 50ms;
+    }
 
-        :host paper-fab {
-            transform: scale(0);
-            animation: 300ms scale 300ms 1 forwards alternate cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
+    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(3) .menu-item,
+    :host .menu-items.reversed ::content a:nth-child(3) .menu-item {
+      -webkit-transition-delay: 100ms;
+              transition-delay: 100ms;
+    }
 
-        :host .menu-items:not([open]) {
-            animation: 0s delayed-disappearance 300ms 1 forwards;
-        }
+    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(4) .menu-item,
+    :host .menu-items.reversed ::content a:nth-child(4) .menu-item {
+      -webkit-transition-delay: 150ms;
+              transition-delay: 150ms;
+    }
 
-        @keyframes scale {
-            0% {
-                transform        : scale(0);
-                -webkit-transform: scale(0);
-            }
-            100% {
-                transform        : scale(1.0);
-                -webkit-transform: scale(1.0);
-            }
-        }
+    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(5) .menu-item,
+    :host .menu-items.reversed ::content a:nth-child(5) .menu-item {
+      -webkit-transition-delay: 200ms;
+              transition-delay: 200ms;
+    }
 
-        @keyframes delayed-disappearance {
-            from {
-                height: auto;
-                width: auto;
-            }
-            to   {
-                height: 0;
-                width: 0;
-            }
-        }
-    </style>
-    <template>
-        <div class$="layout {{ position }}">
-            <div open$="{{ show }}" id="mainFab" class="menu-fab-button layout vertical self-center">
-                <paper-fab id="paperFab" icon="{{ icon }}"></paper-fab>
-            </div>
-            <div open$="{{ show }}" id="mainItems" class$="menu-items flex layout {{ position }} self-center">
-                <content select="a, paper-fab-menu-item"></content>
-            </div>
-        </div>
-    </template>
-    <script>
-        Polymer({
-            is: 'paper-fab-menu',
-            properties: {
-                position: {
-                    value: 'vertical' // ALLOWED: 'vertical', 'horizontal', 'vertical reversed', 'horizontal reversed'
-                },
-                show: {
-                    value: false
-                },
-                color: {
-                    type: String // any color you would like to be a main paper-fab
-                }
-            },
-            listeners: {
-                'mainFab.mouseover':    'open',
-                'mainFab.mouseout':     'close',
-                'mainItems.mouseover':  'open',
-                'mainItems.mouseout':   'close'
-            },
-            ready: function() {
-                if(this.color)
-                    this.$.paperFab.style.backgroundColor = this.color;
-            },
-            open: function() {
-                this.show = true;
-            },
-            close: function() {
-                this.show = false;
-            }
-        })
-    </script>
+    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(6) .menu-item,
+    :host .menu-items.reversed ::content a:nth-child(6) .menu-item {
+      -webkit-transition-delay: 250ms;
+              transition-delay: 250ms;
+    }
+
+    /*REVERSED-STYLE-END*/
+
+    :host paper-fab {
+      -webkit-transform: scale(0);
+              transform: scale(0);
+      -webkit-animation: 300ms scale 300ms 1 forwards alternate cubic-bezier(0.165, 0.84, 0.44, 1);
+              animation: 300ms scale 300ms 1 forwards alternate cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    :host .menu-items:not([open]) {
+      -webkit-animation: 0s delayed-disappearance 300ms 1 forwards;
+              animation: 0s delayed-disappearance 300ms 1 forwards;
+    }
+
+    @-webkit-keyframes scale {
+      0% {
+        transform        : scale(0);
+        -webkit-transform: scale(0);
+      }
+      100% {
+        transform        : scale(1.0);
+        -webkit-transform: scale(1.0);
+      }
+    }
+
+    @keyframes scale {
+      0% {
+        transform        : scale(0);
+        -webkit-transform: scale(0);
+      }
+      100% {
+        transform        : scale(1.0);
+        -webkit-transform: scale(1.0);
+      }
+    }
+
+    @-webkit-keyframes delayed-disappearance {
+      from {
+        height: auto;
+        width: auto;
+      }
+      to   {
+        height: 0;
+        width: 0;
+      }
+    }
+
+    @keyframes delayed-disappearance {
+      from {
+        height: auto;
+        width: auto;
+      }
+      to   {
+        height: 0;
+        width: 0;
+      }
+    }
+  </style>
+  <div class$="flex layout {{ position }}">
+    <div open$="{{ show }}" id="mainFab" class="menu-fab-button layout vertical self-center">
+      <paper-fab id="paperFab" icon="{{ icon }}"></paper-fab>
+    </div>
+    <div open$="{{ show }}" id="mainItems" class$="menu-items layout {{ position }} self-center">
+      <content select="a, paper-fab-menu-item"></content>
+    </div>
+  </div>
+</template>
+<script>
+Polymer({
+  is: 'paper-fab-menu',
+  properties: {
+    position: {
+      value: 'vertical' // ALLOWED: 'vertical', 'horizontal', 'vertical reversed', 'horizontal reversed'
+    },
+    show: {
+      value: false
+    },
+    color: {
+      type: String // any color you would like to be a main paper-fab
+    }
+  },
+  listeners: {
+    'mainFab.mouseover':    'open',
+    'mainFab.mouseout':     'close',
+    'mainItems.mouseover':  'open',
+    'mainItems.mouseout':   'close'
+  },
+  ready: function() {
+    if(this.color)
+    this.$.paperFab.style.backgroundColor = this.color;
+  },
+  open: function() {
+    this.show = true;
+  },
+  close: function() {
+    this.show = false;
+  }
+})
+</script>
 </dom-module>

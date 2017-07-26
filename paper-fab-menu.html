@@ -2,7 +2,7 @@
 <!--
 @author Arshak Khachatrian (<a href="mailto:akhxtern@gmail.com">akhxtern@gmail.com</a>)
 @website http://spacee.xyz
-@updateDate May 14, 2016
+@updateDate July 26, 2017
 
 **********
 *
@@ -269,42 +269,67 @@
   </style>
   <div class$="flex layout {{ position }}">
     <div open$="{{ show }}" id="mainFab" class="menu-fab-button layout vertical self-center">
-      <paper-fab id="paperFab" icon="{{ icon }}"></paper-fab>
+      <paper-fab id="paperFab" src$="{{ _computeSrc }}" icon$="{{ _computeIcon(icon) }}"></paper-fab>
     </div>
     <div open$="{{ show }}" id="mainItems" class$="menu-items layout {{ position }} self-center">
-      <content select="a, paper-fab-menu-item"></content>
+      <slot select="a, paper-fab-menu-item"></slot>
     </div>
   </div>
 </template>
 <script>
-Polymer({
-  is: 'paper-fab-menu',
-  properties: {
-    position: {
-      value: 'vertical' // ALLOWED: 'vertical', 'horizontal', 'vertical reversed', 'horizontal reversed'
-    },
-    show: {
-      value: false
-    },
-    color: {
-      type: String // any color you would like to be a main paper-fab
+class PaperFabMenu extends Polymer.Element {
+  static get is() { return 'paper-fab-menu'; }
+  
+  static get properties() {
+    return {
+      position: {
+        type: String,
+        value: 'vertical' // ALLOWED: 'vertical', 'horizontal', 'vertical reversed', 'horizontal reversed'
+      },
+      show: {
+        type: Boolean,
+        value: false
+      },
+      color: {
+        type: String // any color you would like to be a main paper-fab
+      },
+      icon: {
+        type: String
+      },
+      src: {
+        type: String
+      }
     }
-  },
-  listeners: {
-    'mainFab.mouseover':    'open',
-    'mainFab.mouseout':     'close',
-    'mainItems.mouseover':  'open',
-    'mainItems.mouseout':   'close'
-  },
-  ready: function() {
+  }
+  
+  static get listeners() {
+    return {
+      'mainFab.mouseover':    'open',
+      'mainFab.mouseout':     'close',
+      'mainItems.mouseover':  'open',
+      'mainItems.mouseout':   'close'
+    }
+  }
+  
+  ready() {
     if(this.color)
     this.$.paperFab.style.backgroundColor = this.color;
-  },
-  open: function() {
+  }
+  
+  open() {
     this.show = true;
-  },
-  close: function() {
+  }
+  
+  close() {
     this.show = false;
+  }
+  
+  _computeIcon(icon) {
+    return icon !== "" ? icon : "";
+  }
+  
+  _computeSrc(src) {
+    return src !== "" ? src : "";
   }
 })
 </script>

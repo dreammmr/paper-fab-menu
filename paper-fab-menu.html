@@ -81,14 +81,22 @@
       padding-left: 7px;
     }
 
-    paper-fab ::slotted(iron-icon) {
-      -webkit-transition: 200ms all;
-      transition: 200ms all;
+    paper-fab {
+      --paper-fab-iron-icon: {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transition: 200ms all;
+                transition: 200ms all;
+      }
     }
 
-    :host([opened]) paper-fab ::slotted(iron-icon) {
-      -webkit-transform: rotate(45deg);
-              transform: rotate(45deg);
+    :host([opened]) paper-fab {
+      --paper-fab-iron-icon: {
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+        -webkit-transition: 200ms all;
+                transition: 200ms all;
+      }
     }
 
     .menu-items {

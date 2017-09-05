@@ -2,17 +2,16 @@
 <html>
 <head>
   <title>&#x3C;paper-fab-menu&#x3E; demo page</title>
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
 
   <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 
-  <link rel="import" href="../../paper-styles/typography.html">
-  <link rel="import" href="../../paper-material/paper-material.html">
-
   <link rel="import" href="../paper-fab-menu.html">
 
-  <style is="custom-style" include="demo-pages-shared-styles">
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
   .vertical {
     position: relative;
     height: 250px;
@@ -30,6 +29,7 @@
     top: 10px;
   }
   </style>
+  </custom-style>
 </head>
 <body>
 
@@ -43,9 +43,9 @@
       <template>
         <div class="vertical">
           <paper-fab-menu icon="add" position="vertical">
-            <paper-fab-menu-item label="Polymer" icon="polymer"></paper-fab-menu-item>
-            <paper-fab-menu-item label="Favorites" icon="star"></paper-fab-menu-item>
-            <paper-fab-menu-item label="Refresh" icon="refresh"></paper-fab-menu-item>
+            <paper-fab mini slot="menu-item" icon="polymer"></paper-fab>
+            <paper-fab mini slot="menu-item" icon="arrow-forward"></paper-fab>
+            <paper-fab mini slot="menu-item" icon="refresh"></paper-fab>
           </paper-fab-menu>
         </div>
       </template>
@@ -58,9 +58,9 @@
       <template>
         <div class="vertical reverse">
           <paper-fab-menu icon="add" position="vertical reversed">
-            <paper-fab-menu-item label="Polymer" icon="polymer"></paper-fab-menu-item>
-            <paper-fab-menu-item label="Favorites" icon="star"></paper-fab-menu-item>
-            <paper-fab-menu-item label="Refresh" icon="refresh"></paper-fab-menu-item>
+            <paper-fab mini slot="menu-item" icon="polymer"></paper-fab>
+            <paper-fab mini slot="menu-item" icon="arrow-forward"></paper-fab>
+            <paper-fab mini slot="menu-item" icon="refresh"></paper-fab>
           </paper-fab-menu>
         </div>
       </template>
@@ -71,11 +71,13 @@
     <h3>HORIZONTAL MODE</h3>
     <demo-snippet>
       <template>
-        <paper-fab-menu color="#2196F3" icon="add" position="horizontal">
-          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Polymer" icon="polymer"></paper-fab-menu-item>
-          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Favorites" icon="star"></paper-fab-menu-item>
-          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Refresh" icon="refresh"></paper-fab-menu-item>
-        </paper-fab-menu>
+        <div class="vertical reversed">
+          <paper-fab-menu color="#2196F3" icon="add" position="horizontal">
+            <paper-fab mini slot="menu-item" icon="polymer"></paper-fab>
+            <paper-fab mini slot="menu-item" icon="arrow-forward"></paper-fab>
+            <paper-fab mini slot="menu-item" icon="refresh"></paper-fab>
+          </paper-fab-menu>
+        </div>
       </template>
     </demo-snippet>
   </div>
@@ -85,9 +87,9 @@
     <demo-snippet>
       <template>
         <paper-fab-menu color="#2196F3" icon="add" position="horizontal reversed">
-          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Polymer" icon="polymer"></paper-fab-menu-item>
-          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Favorites" icon="star"></paper-fab-menu-item>
-          <paper-fab-menu-item tooltip-position="top" color="#2196F3" label="Refresh" icon="refresh"></paper-fab-menu-item>
+          <paper-fab mini slot="menu-item" icon="polymer"></paper-fab>
+          <paper-fab mini slot="menu-item" icon="arrow-forward"></paper-fab>
+          <paper-fab mini slot="menu-item" icon="refresh"></paper-fab>
         </paper-fab-menu>
       </template>
     </demo-snippet>
@@ -99,14 +101,14 @@
       <template>
         <div class="vertical">
           <paper-fab-menu icon="add" position="vertical">
-            <a target="_blank" href="http://spacee.xyz">
-              <paper-fab-menu-item label="Polymer" icon="polymer"></paper-fab-menu-item>
+            <a target="_blank" slot="menu-item" href="http://spacee.xyz">
+              <paper-fab mini icon="polymer"></paper-fab>
             </a>
-            <a target="_blank" href="http://spacee.xyz">
-              <paper-fab-menu-item label="Favorites" icon="star"></paper-fab-menu-item>
+            <a target="_blank" slot="menu-item" href="http://spacee.xyz">
+              <paper-fab mini icon="arrow-forward"></paper-fab>
             </a>
-            <a target="_blank" href="http://spacee.xyz">
-              <paper-fab-menu-item label="Refresh" icon="refresh"></paper-fab-menu-item>
+            <a target="_blank" slot="menu-item" href="http://spacee.xyz">
+              <paper-fab mini icon="refresh"></paper-fab>
             </a>
           </paper-fab-menu>
         </div>

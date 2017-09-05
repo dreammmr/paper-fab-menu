@@ -18,7 +18,7 @@ There are four ways to show the paper-fab-button: `vertical`, `vertical reversed
 
 To install the component with the Bower, just run: 
 
-`bower install --save paperfabmenu`
+`bower install --save aruntk/paper-fab-menu`
 
 Example:
 

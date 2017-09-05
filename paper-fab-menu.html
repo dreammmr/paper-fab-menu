@@ -13,40 +13,38 @@
 *
 *   *** EXAMPLE - without links ***
 *   <paper-fab-menu color="teal" icon="add" position="vertical">
-*        <paper-fab-menu-item color="teal" label="Favorites" icon="star" ></paper-fab-menu-item>
-*        <paper-fab-menu-item color="teal" label="Favorites" icon="star" ></paper-fab-menu-item>
-*        <paper-fab-menu-item color="teal" label="Favorites" icon="star" ></paper-fab-menu-item>
+*        <paper-fab mini icon="star" ></paper-fab>
+*        <paper-fab mini icon="star" ></paper-fab>
+*        <paper-fab mini icon="star" ></paper-fab>
 *   </paper-fab-menu>
 *
 *   *** EXAMPLE - with links ***
 *
 *   <paper-fab-menu color="red" icon="add" position="horizontal">
 *        <a href="#/favorites">
-*            <paper-fab-menu-item color="red" label="Favorites" icon="star" ></paper-fab-menu-item>
+*            <paper-fab mini icon="star" ></paper-fab>
 *        </a>
 *        <a href="#/favorites">
-*            <paper-fab-menu-item color="red" label="Favorites" icon="star" ></paper-fab-menu-item>
+*            <paper-fab mini icon="star" ></paper-fab>
 *        </a>
 *        <a href="#/favorites">
-*            <paper-fab-menu-item color="red" label="Favorites" icon="star" ></paper-fab-menu-item>
+*            <paper-fab mini icon="star" ></paper-fab>
 *        </a>
 *   </paper-fab-menu>
 *
 **********
 
-@demo demo/index.html
 -->
 
-<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../paper-fab/paper-fab.html">
 <link rel="import" href="../paper-tooltip/paper-tooltip.html">
-<link rel="import" href="../iron-flex-layout/classes/iron-flex-layout.html">
-<link rel="import" href="paper-fab-menu-item.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 
 <dom-module id="paper-fab-menu">
 <template>
-  <style>
+  <style include="iron-flex iron-flex-alignment">
     :host {
     }
 
@@ -83,26 +81,17 @@
       padding-left: 7px;
     }
 
-    :host .menu-items ::content a {
-      display: block;
-      margin: 7px;
-    }
-
-    :host .menu-items ::content a > paper-fab-menu-item {
-      margin: 0;
-    }
-
-    :host paper-fab ::content iron-icon {
+    paper-fab ::slotted(iron-icon) {
       -webkit-transition: 200ms all;
       transition: 200ms all;
     }
 
-    :host .menu-fab-button[open] paper-fab ::content iron-icon {
+    :host([opened]) paper-fab ::slotted(iron-icon) {
       -webkit-transform: rotate(45deg);
               transform: rotate(45deg);
     }
 
-    :host .menu-items {
+    .menu-items {
       -webkit-box-ordinal-group: 2;
           -ms-flex-order: 1;
               order: 1;
@@ -112,113 +101,106 @@
       /*overflow: hidden;*/
     }
 
-    :host .menu-fab-button {
+    .menu-fab-button {
       -webkit-box-ordinal-group: 3;
           -ms-flex-order: 2;
               order: 2;
     }
 
-    :host .menu-items[open] ::content .menu-item {
+    .menu-items ::slotted(*) {
+      margin: 7px;
+      -webkit-transform: scale(0);
+              transform: scale(0);
+    }
+
+    :host([opened]) .menu-items ::slotted(*) {
       -webkit-transform: scale(1);
               transform: scale(1);
     }
 
-    :host .menu-items ::content paper-fab-menu-item:nth-child(1) .menu-item,
-    :host .menu-items ::content a:nth-child(1) .menu-item {
+    .menu-items ::slotted(*:nth-child(1)) {
       -webkit-transition-delay: 250ms;
               transition-delay: 250ms;
     }
 
-    :host .menu-items ::content paper-fab-menu-item:nth-child(2) .menu-item,
-    :host .menu-items ::content a:nth-child(2) .menu-item {
+    .menu-items ::slotted(*:nth-child(2)) {
       -webkit-transition-delay: 200ms;
               transition-delay: 200ms;
     }
 
-    :host .menu-items ::content paper-fab-menu-item:nth-child(3) .menu-item,
-    :host .menu-items ::content a:nth-child(3) .menu-item {
+    .menu-items ::slotted(*:nth-child(3)) {
       -webkit-transition-delay: 150ms;
               transition-delay: 150ms;
     }
 
-    :host .menu-items ::content paper-fab-menu-item:nth-child(4) .menu-item,
-    :host .menu-items ::content a:nth-child(4) .menu-item {
+    .menu-items ::slotted(*:nth-child(4)) {
       -webkit-transition-delay: 100ms;
               transition-delay: 100ms;
     }
 
-    :host .menu-items ::content paper-fab-menu-item:nth-child(5) .menu-item,
-    :host .menu-items ::content a:nth-child(5) .menu-item {
+    .menu-items ::slotted(*:nth-child(5)) {
       -webkit-transition-delay: 50ms;
               transition-delay: 50ms;
     }
 
-    :host .menu-items ::content paper-fab-menu-item:nth-child(6) .menu-item,
-    :host .menu-items ::content a:nth-child(6) .menu-item {
+    .menu-items ::slotted(*:nth-child(6)) {
       -webkit-transition-delay: 0ms;
               transition-delay: 0ms;
     }
 
-    :host .menu-items ::content paper-fab-menu-item .menu-item,
-    :host .menu-items ::content a .menu-item {
+    .menu-items ::slotted(*) {
       -webkit-transition: 100ms all;
       transition: 100ms all;
     }
 
     /*REVERSED-STYLE-START*/
 
-    :host .menu-items.reversed {
+    .menu-items.reversed {
       -webkit-box-ordinal-group: 4;
           -ms-flex-order: 3;
               order: 3;
     }
 
-    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(1) .menu-item,
-    :host .menu-items.reversed ::content a:nth-child(1) .menu-item {
+    .menu-items.reversed ::slotted(a:nth-child(1)) {
       -webkit-transition-delay: 0ms;
               transition-delay: 0ms;
     }
 
-    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(2) .menu-item,
-    :host .menu-items.reversed ::content a:nth-child(2) .menu-item {
+    .menu-items.reversed ::slotted(a:nth-child(2)) {
       -webkit-transition-delay: 50ms;
               transition-delay: 50ms;
     }
 
-    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(3) .menu-item,
-    :host .menu-items.reversed ::content a:nth-child(3) .menu-item {
+    .menu-items.reversed ::slotted(a:nth-child(3)) {
       -webkit-transition-delay: 100ms;
               transition-delay: 100ms;
     }
 
-    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(4) .menu-item,
-    :host .menu-items.reversed ::content a:nth-child(4) .menu-item {
+    .menu-items.reversed ::slotted(a:nth-child(4)) {
       -webkit-transition-delay: 150ms;
               transition-delay: 150ms;
     }
 
-    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(5) .menu-item,
-    :host .menu-items.reversed ::content a:nth-child(5) .menu-item {
+    .menu-items.reversed ::slotted(a:nth-child(5)) {
       -webkit-transition-delay: 200ms;
               transition-delay: 200ms;
     }
 
-    :host .menu-items.reversed ::content paper-fab-menu-item:nth-child(6) .menu-item,
-    :host .menu-items.reversed ::content a:nth-child(6) .menu-item {
+    .menu-items.reversed ::slotted(a:nth-child(6)) {
       -webkit-transition-delay: 250ms;
               transition-delay: 250ms;
     }
 
     /*REVERSED-STYLE-END*/
 
-    :host paper-fab {
+    paper-fab {
       -webkit-transform: scale(0);
               transform: scale(0);
       -webkit-animation: 300ms scale 300ms 1 forwards alternate cubic-bezier(0.165, 0.84, 0.44, 1);
               animation: 300ms scale 300ms 1 forwards alternate cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
-    :host .menu-items:not([open]) {
+    :host(:not([opened])) .menu-items {
       -webkit-animation: 0s delayed-disappearance 300ms 1 forwards;
               animation: 0s delayed-disappearance 300ms 1 forwards;
     }
@@ -267,70 +249,85 @@
       }
     }
   </style>
-  <div class$="flex layout {{ position }}">
-    <div open$="{{ show }}" id="mainFab" class="menu-fab-button layout vertical self-center">
-      <paper-fab id="paperFab" src$="{{ _computeSrc }}" icon$="{{ _computeIcon(icon) }}"></paper-fab>
+  <div class$="flex layout [[ position ]]">
+    <div id="mainFab" class="menu-fab-button layout vertical self-center">
+      <paper-fab id="paperFab" src$="[[ _computeSrc ]]" icon$="[[ _computeIcon(icon) ]]"></paper-fab>
     </div>
-    <div open$="{{ show }}" id="mainItems" class$="menu-items layout {{ position }} self-center">
-      <slot select="a, paper-fab-menu-item"></slot>
+    <div id="mainItems" class$="menu-items layout [[ position ]] self-center">
+      <slot name="menu-item"></slot>
     </div>
   </div>
 </template>
 <script>
-class PaperFabMenu extends Polymer.Element {
-  static get is() { return 'paper-fab-menu'; }
-  
-  static get properties() {
-    return {
-      position: {
-        type: String,
-        value: 'vertical' // ALLOWED: 'vertical', 'horizontal', 'vertical reversed', 'horizontal reversed'
-      },
-      show: {
-        type: Boolean,
-        value: false
-      },
-      color: {
-        type: String // any color you would like to be a main paper-fab
-      },
-      icon: {
-        type: String
-      },
-      src: {
-        type: String
+    /**
+     * `paper-fab-menu`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class PaperFabMenu extends Polymer.Element {
+      static get is() { return 'paper-fab-menu'; }
+
+      static get properties() {
+        return {
+          position: {
+            type: String,
+            value: 'vertical' // ALLOWED: 'vertical', 'horizontal', 'vertical reversed', 'horizontal reversed'
+          },
+          opened: {
+            type: Boolean,
+            value: false,
+            reflectToAttribute: true,
+          },
+          color: {
+            type: String // any color you would like to be a main paper-fab
+          },
+          icon: {
+            type: String
+          },
+          src: {
+            type: String
+          }
+        }
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        this.$.mainFab.addEventListener('mouseover', e => this.open(e));
+        this.$.mainFab.addEventListener('mouseout', e => this.close(e));
+        this.$.mainItems.addEventListener('mouseover', e => this.open(e));
+        this.$.mainItems.addEventListener('mouseout', e => this.close(e));
+        if (this.color) {
+          this.$.paperFab.style.backgroundColor = this.color;
+        }
+      }
+
+      disconnectedCallback() {
+        super.disconnectedCallback();
+        this.$.mainFab.removeEventListener('mouseover', e => this.open(e));
+        this.$.mainFab.removeEventListener('mouseout', e => this.close(e));
+        this.$.mainItems.removeEventListener('mouseover', e => this.open(e));
+        this.$.mainItems.removeEventListener('mouseout', e => this.close(e));
+      }
+
+      open() {
+        this.opened = true;
+      }
+
+      close() {
+        this.opened = false;
+      }
+
+      _computeIcon(icon) {
+        return icon !== "" ? icon : "";
+      }
+
+      _computeSrc(src) {
+        return src !== "" ? src : "";
       }
     }
-  }
-  
-  static get listeners() {
-    return {
-      'mainFab.mouseover':    'open',
-      'mainFab.mouseout':     'close',
-      'mainItems.mouseover':  'open',
-      'mainItems.mouseout':   'close'
-    }
-  }
-  
-  ready() {
-    if(this.color)
-    this.$.paperFab.style.backgroundColor = this.color;
-  }
-  
-  open() {
-    this.show = true;
-  }
-  
-  close() {
-    this.show = false;
-  }
-  
-  _computeIcon(icon) {
-    return icon !== "" ? icon : "";
-  }
-  
-  _computeSrc(src) {
-    return src !== "" ? src : "";
-  }
-})
+  window.customElements.define(PaperFabMenu.is, PaperFabMenu);
 </script>
 </dom-module>

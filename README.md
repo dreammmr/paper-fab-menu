@@ -26,9 +26,9 @@ Example:
 <import rel="import" src="bower_components/paper-fab-menu/paper-fab-menu.html" />
 
 <paper-fab-menu icon="add" position="vertical">
-	<paper-fab-menu-item label="Polymer" icon="polymer" ></paper-fab-menu-item>
-	<paper-fab-menu-item label="Favorites" icon="star" ></paper-fab-menu-item>
-	<paper-fab-menu-item label="Refresh" icon="refresh" ></paper-fab-menu-item>
+	<paper-fab mini icon="polymer" ></paper-fab>
+	<paper-fab mini icon="star" ></paper-fab>
+	<paper-fab mini icon="refresh" ></paper-fab>
 </paper-fab-menu>
 ```
 
@@ -41,16 +41,4 @@ The following properties are available for styling:
 | `icon` | The icon of the main paper-button | `''` |
 | `color` | The background color of the main paper button | `--accent-color` |
 | `position` | The position of the items: `vertical`, `vertical reversed`, `horizontal`, `horizontal reversed` | `vertical` |
-
-### ##&lt;paper-fab-menu-item&gt; - Properties
-
-The following properties are available for styling:
-
-| Property Name | Description | Default |
-| --- | --- | --- |
-| `icon` | The icon of the paper menu item | `''` |
-| `color` | The background color of the paper menu item | `--accent-color` |
-| `label` | The tooltip label of the paper menu item | `''` |
-| `tooltip-position` | The position of the tooltip | `left` |
-
 
